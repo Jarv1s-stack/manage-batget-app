@@ -1,18 +1,69 @@
 export default {
+  common: {
+    submit: "Submit",
+    cancel: "Cancel",
+    delete: "Delete",
+    edit: "Edit",
+    loading: "Loading...",
+    confirmDelete: "Are you sure you want to delete this?",
+  },
+  auth: {
+    welcome: "Welcome",
+    login: "Login",
+    logout: "Logout",
+    deleteAccount: "Delete Account",
+    confirmDeleteUser: "Delete user and all data?",
+  },
   dashboard: {
     title: "Welcome back,",
     noBudgets: "Personal budgeting is the secret to financial freedom.",
     createBudgetPrompt: "Create a budget to get started!",
     existingBudgets: "Existing Budgets",
     recentExpenses: "Recent Expenses",
-    viewAll: "View all expenses"
+    viewAll: "View all expenses",
+    noExpenses: "No expenses to show",
+    total: "Total",
   },
   budgetForm: {
-    title: "Create budget",
+    title: "Create Budget",
     nameLabel: "Budget Name",
     namePlaceholder: "e.g., Groceries",
     amountLabel: "Amount",
-    submit: "Create budget"
+    amountPlaceholder: "e.g., 350",
+    currencyLabel: "Currency",
+    purposeLabel: "Budget Purpose",
+    purposePlaceholder: "e.g., Monthly food expenses",
+    submit: "Create Budget",
+    submitting: "Creating...",
   },
-  // Add all other translations here...
-}
+  expenseForm: {
+    title: "Add Expense",
+    nameLabel: "Expense Name",
+    namePlaceholder: "e.g., Coffee",
+    amountLabel: "Amount",
+    amountPlaceholder: "e.g., 3.50",
+    categoryLabel: "Budget Category",
+    submit: "Add Expense",
+    submitting: "Adding...",
+  },
+  budgetItem: {
+    budgeted: "Budgeted",
+    spent: "Spent",
+    remaining: "Remaining",
+    viewDetails: "View Details",
+    deleteBudget: "Delete Budget",
+  },
+  table: {
+    name: "Name",
+    amount: "Amount",
+    date: "Date",
+    budget: "Budget",
+    actions: "Actions",
+  },
+  currency: {
+    USD: "US Dollar ($)",
+    EUR: "Euro (€)",
+    RUB: "Russian Ruble (₽)",
+    KZT: "Kazakh Tenge (₸)",
+  },
+};

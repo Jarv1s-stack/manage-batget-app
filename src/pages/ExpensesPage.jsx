@@ -1,13 +1,10 @@
 import { useLoaderData } from "react-router-dom";
-
 import { toast } from "react-toastify";
-
 import Table from "../components/Table";
-
 import { deleteItem, fetchData } from "../helpers";
 
 export async function expensesLoader() {
-  const expenses = fetchData("expenses");
+  const expenses = fetchData("expenses") || [];
   return { expenses };
 }
 

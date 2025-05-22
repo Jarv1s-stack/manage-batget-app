@@ -1,11 +1,8 @@
 import { useLoaderData } from "react-router-dom";
-
 import { toast } from "react-toastify";
-
 import AddExpenseForm from "../components/AddExpenseForm";
 import BudgetItem from "../components/BudgetItem";
 import Table from "../components/Table";
-
 import { createExpense, deleteItem, getAllMatchingItems } from "../helpers";
 
 export async function budgetLoader({ params }) {
@@ -25,10 +22,9 @@ export async function budgetLoader({ params }) {
     throw new Error("The budget you’re trying to find doesn’t exist");
   }
 
-  return { budget, expenses };
+  return { budget, expenses: expenses || [] };
 }
 
-// action
 export async function budgetAction({ request }) {
   const data = await request.formData();
   const { _action, ...values } = Object.fromEntries(data);

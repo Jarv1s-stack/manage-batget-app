@@ -1,18 +1,69 @@
 export default {
+  common: {
+    submit: "Жіберу",
+    cancel: "Бас тарту",
+    delete: "Жою",
+    edit: "Өзгерту",
+    loading: "Жүктелуде...",
+    confirmDelete: "Бұл элементті жойғыңыз келетініне сенімдісіз бе?",
+  },
+  auth: {
+    welcome: "Қош келдіңіз",
+    login: "Кіру",
+    logout: "Шығу",
+    deleteAccount: "Аккаунтты жою",
+    confirmDeleteUser: "Пайдаланушыны және барлық деректерді жойғыңыз келе ме?",
+  },
   dashboard: {
-    title: "Қош келдіңіз,",
+    title: "Қайта оралдыңыз,",
     noBudgets: "Жеке бюджет - бұл қаржылық еркіндіктің құпиясы.",
     createBudgetPrompt: "Бастау үшін бюджет жасаңыз!",
     existingBudgets: "Бар бюджеттер",
     recentExpenses: "Соңғы шығыстар",
-    viewAll: "Барлық шығыстарды көру"
+    viewAll: "Барлық шығыстарды көру",
+    noExpenses: "Көрсету үшін шығыстар жоқ",
+    total: "Барлығы",
   },
   budgetForm: {
     title: "Бюджет құру",
     nameLabel: "Бюджет атауы",
     namePlaceholder: "мысалы, Азық-түлік",
     amountLabel: "Сома",
-    submit: "Бюджет құру"
+    amountPlaceholder: "мысалы, 350",
+    currencyLabel: "Валюта",
+    purposeLabel: "Бюджеттің мақсаты",
+    purposePlaceholder: "мысалы, Ай сайынғы тамақ шығыстары",
+    submit: "Бюджет құру",
+    submitting: "Құрылуда...",
   },
-  // Add all other translations here...
-}
+  expenseForm: {
+    title: "Шығыс қосу",
+    nameLabel: "Шығыс атауы",
+    namePlaceholder: "мысалы, Кофе",
+    amountLabel: "Сома",
+    amountPlaceholder: "мысалы, 3.50",
+    categoryLabel: "Санат",
+    submit: "Шығыс қосу",
+    submitting: "Қосылуда...",
+  },
+  budgetItem: {
+    budgeted: "Жоспарланған",
+    spent: "Жұмсалған",
+    remaining: "Қалған",
+    viewDetails: "Толығырақ",
+    deleteBudget: "Бюджетті жою",
+  },
+  table: {
+    name: "Атауы",
+    amount: "Сома",
+    date: "Күні",
+    budget: "Бюджет",
+    actions: "Әрекеттер",
+  },
+  currency: {
+    USD: "АҚШ доллары ($)",
+    EUR: "Еуро (€)",
+    RUB: "Ресей рублі (₽)",
+    KZT: "Қазақстан теңгесі (₸)",
+  },
+};

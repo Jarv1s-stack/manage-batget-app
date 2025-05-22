@@ -1,18 +1,69 @@
 export default {
+  common: {
+    submit: "Отправить",
+    cancel: "Отмена",
+    delete: "Удалить",
+    edit: "Редактировать",
+    loading: "Загрузка...",
+    confirmDelete: "Вы уверены, что хотите удалить это?",
+  },
+  auth: {
+    welcome: "Добро пожаловать",
+    login: "Войти",
+    logout: "Выйти",
+    deleteAccount: "Удалить аккаунт",
+    confirmDeleteUser: "Удалить пользователя и все данные?",
+  },
   dashboard: {
-    title: "Добро пожаловать,",
+    title: "С возвращением,",
     noBudgets: "Личный бюджет - это секрет финансовой свободы.",
     createBudgetPrompt: "Создайте бюджет, чтобы начать!",
     existingBudgets: "Существующие бюджеты",
     recentExpenses: "Последние расходы",
-    viewAll: "Просмотреть все расходы"
+    viewAll: "Просмотреть все расходы",
+    noExpenses: "Нет расходов для отображения",
+    total: "Всего",
   },
   budgetForm: {
     title: "Создать бюджет",
     nameLabel: "Название бюджета",
     namePlaceholder: "например, Продукты",
     amountLabel: "Сумма",
-    submit: "Создать бюджет"
+    amountPlaceholder: "например, 350",
+    currencyLabel: "Валюта",
+    purposeLabel: "Назначение бюджета",
+    purposePlaceholder: "например, Ежемесячные траты на еду",
+    submit: "Создать бюджет",
+    submitting: "Создание...",
   },
-  // Add all other translations here...
-}
+  expenseForm: {
+    title: "Добавить расход",
+    nameLabel: "Название расхода",
+    namePlaceholder: "например, Кофе",
+    amountLabel: "Сумма",
+    amountPlaceholder: "например, 3.50",
+    categoryLabel: "Категория",
+    submit: "Добавить расход",
+    submitting: "Добавление...",
+  },
+  budgetItem: {
+    budgeted: "Запланировано",
+    spent: "Потрачено",
+    remaining: "Остаток",
+    viewDetails: "Подробнее",
+    deleteBudget: "Удалить бюджет",
+  },
+  table: {
+    name: "Название",
+    amount: "Сумма",
+    date: "Дата",
+    budget: "Бюджет",
+    actions: "Действия",
+  },
+  currency: {
+    USD: "Доллар США ($)",
+    EUR: "Евро (€)",
+    RUB: "Российский рубль (₽)",
+    KZT: "Казахстанский тенге (₸)",
+  },
+};

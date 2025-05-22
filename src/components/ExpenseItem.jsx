@@ -1,7 +1,5 @@
 import { Link, useFetcher } from "react-router-dom";
-
 import { TrashIcon } from "@heroicons/react/24/solid";
-
 import {
   formatCurrency,
   formatDateToLocaleString,
@@ -20,7 +18,7 @@ const ExpenseItem = ({ expense, showBudget }) => {
   return (
     <>
       <td>{expense.name}</td>
-      <td>{formatCurrency(expense.amount)}</td>
+      <td>{formatCurrency(expense.amount, budget.currency)}</td>
       <td>{formatDateToLocaleString(expense.createdAt)}</td>
       {showBudget && (
         <td>

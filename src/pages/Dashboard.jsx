@@ -1,7 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useTranslation } from "../hooks/useTranslation";
-import { useLanguage } from "../context/LanguageContext";
 
 import Intro from "../components/Intro";
 import AddBudgetForm from "../components/AddBudgetForm";
@@ -13,8 +12,8 @@ import { createBudget, createExpense, deleteItem, fetchData, waait } from "../he
 
 export function dashboardLoader() {
   const userName = fetchData("userName");
-  const budgets = fetchData("budgets");
-  const expenses = fetchData("expenses");
+  const budgets = fetchData("budgets") || [];
+  const expenses = fetchData("expenses") || [];
   return { userName, budgets, expenses };
 }
 
@@ -26,8 +25,9 @@ export async function dashboardAction({ request }) {
 
   if (_action === "newUser") {
     try {
-      localStorage.setItem("userName", JSON.stringify(values.userName));
-      return toast.success(`Welcome, ${values.userName}`);
+      const userName = String(values.userName).trim();
+      localStorage.setItem("userName", JSON.stringify(userName));
+      return toast.success(`Welcome, ${userName}`);
     } catch (e) {
       throw new Error("There was a problem creating your account.");
     }
@@ -38,6 +38,7 @@ export async function dashboardAction({ request }) {
       createBudget({
         name: values.newBudget,
         amount: values.newBudgetAmount,
+        currency: values.budgetCurrency,
       });
       return toast.success("Budget created!");
     } catch (e) {
@@ -74,7 +75,6 @@ export async function dashboardAction({ request }) {
 const Dashboard = () => {
   const { userName, budgets, expenses } = useLoaderData();
   const t = useTranslation();
-  const { currency } = useLanguage();
 
   return (
     <>

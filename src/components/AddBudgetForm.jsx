@@ -45,6 +45,19 @@ const AddBudgetForm = () => {
             inputMode="decimal"
           />
         </div>
+        <div className="grid-xs">
+          <label htmlFor="budgetCurrency">{t('budgetForm.currencyLabel')}</label>
+          <select
+            name="budgetCurrency"
+            id="budgetCurrency"
+            required
+          >
+            <option value="USD">USD ($)</option>
+            <option value="RUB">RUB (₽)</option>
+            <option value="KZT">KZT (₸)</option>
+            <option value="EUR">EUR (€)</option>
+          </select>
+        </div>
         <input type="hidden" name="_action" value="createBudget" />
         <button type="submit" className="btn btn--dark" disabled={isSubmitting}>
           {isSubmitting ? (

@@ -1,7 +1,5 @@
 import { Form, Link } from "react-router-dom";
-
 import { BanknotesIcon, TrashIcon } from "@heroicons/react/24/outline";
-
 import {
   calculateSpentByBudget,
   formatCurrency,
@@ -9,7 +7,7 @@ import {
 } from "../helpers";
 
 const BudgetItem = ({ budget, showDelete = false }) => {
-  const { id, name, amount, color } = budget;
+  const { id, name, amount, color, currency } = budget;
   const spent = calculateSpentByBudget(id);
 
   return (
@@ -21,14 +19,14 @@ const BudgetItem = ({ budget, showDelete = false }) => {
     >
       <div className="progress-text">
         <h3>{name}</h3>
-        <p>{formatCurrency(amount)} Budgeted</p>
+        <p>{formatCurrency(amount, currency)} Budgeted</p>
       </div>
       <progress max={amount} value={spent}>
         {formatPercentage(spent / amount)}
       </progress>
       <div className="progress-text">
-        <small>{formatCurrency(spent)} spent</small>
-        <small>{formatCurrency(amount - spent)} remaining</small>
+        <small>{formatCurrency(spent, currency)} spent</small>
+        <small>{formatCurrency(amount - spent, currency)} remaining</small>
       </div>
       {showDelete ? (
         <div className="flex-sm">

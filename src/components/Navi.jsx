@@ -1,10 +1,7 @@
 import { Form, NavLink } from "react-router-dom";
-
 import { TrashIcon } from "@heroicons/react/24/solid";
-
 import logomark from "../assets/logomark.svg";
 import LanguageSelector from "./LanguageSelector";
-
 
 const Nav = ({ userName }) => {
   return (

@@ -7,7 +7,25 @@ const generateRandomColor = () => {
 };
 
 export const fetchData = (key) => {
-  return JSON.parse(localStorage.getItem(key));
+  const data = localStorage.getItem(key);
+  if (!data) return null;
+
+  try {
+    const parsedData = JSON.parse(data);
+    if (key === "budgets" && parsedData) {
+      const updatedData = parsedData.map(budget => ({
+        ...budget,
+        currency: budget.currency || 'USD'
+      }));
+      localStorage.setItem(key, JSON.stringify(updatedData));
+      return updatedData;
+    }
+    return parsedData;
+  } catch (e) {
+    console.error(`Error parsing ${key} from localStorage:`, e);
+    localStorage.removeItem(key);
+    return null;
+  }
 };
 
 export const getAllMatchingItems = ({ category, key, value }) => {
@@ -24,13 +42,14 @@ export const deleteItem = ({ key, id }) => {
   return localStorage.removeItem(key);
 };
 
-export const createBudget = ({ name, amount }) => {
+export const createBudget = ({ name, amount, currency }) => {
   const newItem = {
     id: crypto.randomUUID(),
     name: name,
     createdAt: Date.now(),
     amount: +amount,
     color: generateRandomColor(),
+    currency: currency || 'USD',
   };
   const existingBudgets = fetchData("budgets") ?? [];
   return localStorage.setItem(
@@ -40,12 +59,19 @@ export const createBudget = ({ name, amount }) => {
 };
 
 export const createExpense = ({ name, amount, budgetId }) => {
+  const budget = getAllMatchingItems({
+    category: "budgets",
+    key: "id",
+    value: budgetId,
+  })[0];
+  
   const newItem = {
     id: crypto.randomUUID(),
     name: name,
     createdAt: Date.now(),
     amount: +amount,
     budgetId: budgetId,
+    currency: budget.currency,
   };
   const existingExpenses = fetchData("expenses") ?? [];
   return localStorage.setItem(
@@ -58,7 +84,6 @@ export const calculateSpentByBudget = (budgetId) => {
   const expenses = fetchData("expenses") ?? [];
   const budgetSpent = expenses.reduce((acc, expense) => {
     if (expense.budgetId !== budgetId) return acc;
-
     return (acc += expense.amount);
   }, 0);
   return budgetSpent;
@@ -84,5 +109,3 @@ export const formatCurrency = (amt, currency = 'USD') => {
 
   return amt.toLocaleString(undefined, currencyMap[currency] || currencyMap.USD);
 };
-
-
